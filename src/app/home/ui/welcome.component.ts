@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, output, input, EventEmitter } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { NgTemplateOutlet } from "@angular/common";
 
@@ -23,6 +23,8 @@ import { NgTemplateOutlet } from "@angular/common";
         <ng-container *ngTemplateOutlet="myTemplate2; context: { greeting: 'Hello' }"></ng-container>
         <ng-container *ngTemplateOutlet="myTemplate2; context: { greeting: 'Yo' }"></ng-container>
         <p>Hi, {{ name() }}!</p>
+        <p>Do you accept the yummy cookies?</p>
+        <button (click)="cookiesAccepted.emit(true)">I do!</button>
      `,
      imports: [FormsModule, NgTemplateOutlet]
 })
@@ -36,4 +38,5 @@ export class WelcomeComponent {
     }
 
     name = input('friend');
+    cookiesAccepted = output<boolean>();
 }

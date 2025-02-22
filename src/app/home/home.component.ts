@@ -6,11 +6,11 @@ import { ReversePipe } from './ui/reverse.pipe';
 @Component({
     selector: 'app-home',
     template: `
-        <app-welcome [name]="user.name" /> 
+        <app-welcome [name]="user.name" (cookiesAccepted)="handleCookies()" /> 
         <p>I am the home component</p>
         <p randomColor>I am stylish</p>
         <p>Time for a little: {{ magic | reverse }}</p>
- `,
+    `,
     imports: [WelcomeComponent, RandomColor, ReversePipe],
 })
 
@@ -20,4 +20,9 @@ export class HomeComponent {
     user = {
         name: 'Josh',
     };
+
+    handleCookies() {
+        console.log('do something');
+        // call some service
+    }
 }
