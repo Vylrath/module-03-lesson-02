@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { NgTemplateOutlet } from "@angular/common";
 
@@ -22,6 +22,7 @@ import { NgTemplateOutlet } from "@angular/common";
         <ng-container *ngTemplateOutlet="myTemplate2; context: { greeting: 'Hi' }"></ng-container>
         <ng-container *ngTemplateOutlet="myTemplate2; context: { greeting: 'Hello' }"></ng-container>
         <ng-container *ngTemplateOutlet="myTemplate2; context: { greeting: 'Yo' }"></ng-container>
+        <p>Hi, {{ name() }}!</p>
      `,
      imports: [FormsModule, NgTemplateOutlet]
 })
@@ -33,4 +34,6 @@ export class WelcomeComponent {
         console.log('I was clicked!');
         console.log(ev);
     }
+
+    name = input('friend');
 }

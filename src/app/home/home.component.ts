@@ -6,7 +6,7 @@ import { ReversePipe } from './ui/reverse.pipe';
 @Component({
     selector: 'app-home',
     template: `
-        <app-welcome /> 
+        <app-welcome [name]="user.name" /> 
         <p>I am the home component</p>
         <p randomColor>I am stylish</p>
         <p>Time for a little: {{ magic | reverse }}</p>
@@ -16,4 +16,8 @@ import { ReversePipe } from './ui/reverse.pipe';
 
 export class HomeComponent {
     magic = 'reverse me';
+
+    user = {
+        name: 'Josh',
+    };
 }
